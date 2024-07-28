@@ -24,7 +24,7 @@ export default function MealsPage() {
           fun!
         </p>
         <p className={classes.cta}>
-          <Link href="/meals">Share Your Favourite Recipe</Link>
+          <Link href="/meals/share">Share Your Favourite Recipe</Link>
         </p>
       </header>
       <main className={classes.main}>
