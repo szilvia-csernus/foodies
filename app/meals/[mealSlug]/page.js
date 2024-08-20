@@ -3,12 +3,22 @@ import classes from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export default function MealDetailsPage({ params }) {
+export async function generateMetadata({ params }) {
   const meal = getMeal(params.mealSlug);
 
   if (!meal) {
     notFound();
   }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+    image: meal.image,
+  };
+}
+
+export default function MealDetailsPage({ params }) {
+  const meal = getMeal(params.mealSlug);
 
   const instructions = meal.instructions.replace(/\n/g, "<br>",);
 
